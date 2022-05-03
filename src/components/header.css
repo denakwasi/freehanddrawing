@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --padding: 4px 8px;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background: rgb(115, 115, 226);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 2px solid cornflowerblue;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.header .header-container {
+    width: min(100% - 2rem, 1000px);
+    margin-inline: auto;
+}
+
+.header .tools-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.saveBtn {
+    /* padding: var(--padding); */
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    background: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header svg {
+    cursor: pointer;
+}
+
+.header svg path {
+    fill: #fff;
+}
+
+.header .redo-undo {
+    padding: var(--padding);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.pen-tool-wrapper .pen-tool svg path {
+    fill: #000;
+}
+
+.saveBtn svg path {
+    fill: #2c2a2c;
+}
+
+.files, .pen-tool-wrapper, .sel-file, .page-count-container, .pen-tool-wrapper, .drawing-mode, .redo-undo, .save-button {
+    width: 90px;
+    height: 30px;
+    position: relative;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.del-selected {
+    width: 90px;
+    height: 30px;
+    position: relative;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.del-selected svg {
+    transform: translate(180%, 20%);
+}
+
+.files span {
+    width: 25px;
+    height: 25px;
+    background-color: #FF0000;
+    position: fixed;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    top: 2px;
+    left: 5px;
+}
+
+.page-count-container {
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.tools-wrapper .files::before {
+    position: absolute;
+    z-index: 1;
+}
+
+.tools-wrapper .save-button svg path {
+    fill: gold;
+}
+
+.tools-wrapper .files::before, .tools-wrapper .sel-file::before,
+.tools-wrapper .page-count-container::before, .tools-wrapper .pen-tool-wrapper::before,
+.tools-wrapper .drawing-mode::before, .tools-wrapper .redo-undo::before,  .tools-wrapper  .del-selected::before, .tools-wrapper .save-button::before {
+    content: attr(data-desc);
+    width: 100%;
+    position: absolute;
+    top: -15px;
+    left: 0px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.tools-wrapper .files::after, .tools-wrapper .sel-file::after,
+.tools-wrapper .page-count-container::after, .tools-wrapper .pen-tool-wrapper::after,
+.tools-wrapper .drawing-mode::after, .tools-wrapper .redo-undo::after, .tools-wrapper .del-selected::after, .tools-wrapper .save-button::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: yellow;
+    position: absolute;
+    bottom: -3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.2s transform linear;
+}
+
+.tools-wrapper .files:hover::after, .tools-wrapper .sel-file:hover::after,
+.tools-wrapper .page-count-container:hover::after, .tools-wrapper .pen-tool-wrapper:hover::after,
+.tools-wrapper .drawing-mode:hover::after, .tools-wrapper .redo-undo:hover::after, .tools-wrapper .save-button:hover::after {
+    content: "";
+    transform: scaleX(1);
+}
+
+.tools-wrapper .page-count-container form input {
+    width: 30px;
+    height: 20px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    margin-left: 2px;
+    padding-left: 5px;
+}

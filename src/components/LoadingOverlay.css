@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 1.5s linear;
+}
+
+.overlay .overlay-content {
+    max-width: 200px;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    color: #000;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.overlay.active {
+    display: none;
+}
